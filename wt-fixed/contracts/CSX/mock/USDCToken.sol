@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+// MOCK USDC Contract 
+
+pragma solidity ^0.8.18;
+
+import {ERC20} from "../Interfaces.sol";
+
+contract USDCToken is ERC20 {
+    // ONE HUNDERED MILLION MOCK TOKENS WITH 6 DECIMALS
+    uint256 public constant MAX_SUPPLY = 100000000 * 10 ** 6;
+
+    
+    constructor() ERC20("USDC", "USDC") {
+        _mint(msg.sender, MAX_SUPPLY);
+    }
+
+    function decimals() public pure override returns (uint8) {
+        return 6;
+    }
+}
